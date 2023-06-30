@@ -8,7 +8,7 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new(board_params)
+    @board = current_user.boards.build(board_params)
     if @board.save
       redirect_to boards_path, notice: t('flash.notices.board_created')
     else

@@ -1,5 +1,10 @@
 {
   "name": "runteq_normal",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/29827_sakamoto-kohei-44_runteq_curriculum_normal",
+  "author": "sakamotokohei <your-email@banbengongping111@gmail.com>",
+  "license": "MIT"
 }

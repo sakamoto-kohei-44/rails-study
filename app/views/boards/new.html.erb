@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>掲示板作成</h1>
+      <%= form_with model: @board, url: boards_path, class: "new_board" do |f| %>
+        <div class="form-group">
+          <%= f.label :title, for: "board_title" %>
+          <%= f.text_field :title, class: "form-control", id: "board_title" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :body, for: "board_body" %>
+          <%= f.text_area :body, class: "form-control", rows: 10, style: "height: 200px", id: "board_body" %>
+        </div>
+        <%= f.submit "作成", class: "btn btn-primary", data: { disable_with: "作成" } %>
+      <% end %>
+    </div>
+  </div>
+</div>
