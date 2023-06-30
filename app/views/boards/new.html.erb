@@ -1,18 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-      <h1>掲示板作成</h1>
-      <%= form_with model: @board, url: boards_path, class: "new_board" do |f| %>
+      <h1><%= t '.title' %></h1>
+       <%= form_with model: @board, local: true do |f| %>
         <div class="form-group">
-          <%= f.label :title, for: "board_title" %>
-          <%= f.text_field :title, class: "form-control", id: "board_title" %>
+          <%= f.label (t 'activerecord.attributes.board.title') %>
+          <%= f.text_field :title, class: 'form-control', id: 'board_title'%>
         </div>
         <div class="form-group">
-          <%= f.label :body, for: "board_body" %>
-          <%= f.text_area :body, class: "form-control", rows: 10, style: "height: 200px", id: "board_body" %>
+          <%= f.label (t 'activerecord.attributes.board.body') %>
+          <%= f.text_area :body, class: 'form-control', id: 'board_body', rows: 10 %>
         </div>
-        <%= f.submit "作成", class: "btn btn-primary", data: { disable_with: "作成" } %>
-      <% end %>
+        <%= f.submit (t 'defaults.register'), class: 'btn btn-primary'%>
+       <% end %>
+
     </div>
   </div>
 </div>

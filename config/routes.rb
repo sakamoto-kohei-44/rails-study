@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
    # 掲示板関連のルーティング
-   resources :boards, only: [:index, :new, :create]
+  resources :boards, only: %i[index new create]
 end

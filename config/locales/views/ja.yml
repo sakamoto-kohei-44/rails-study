@@ -4,7 +4,7 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     message:
-    　　require_login: 'ログインしてください'
+      require_login: 'ログインしてください'
   users:
     new:
       title: 'ユーザー登録'
@@ -38,6 +38,11 @@ ja:
     flash:
       notices:
         board_created: '掲示板を作成しました'
-      alerts:
-        board_creation_failed: '掲示板を作成できませんでした'
-      
+  activerecord:
+    attributes:
+      board:
+        title: "タイトル"
+        body:  "本文"
+  helpers:
+    submit:
+      create: "登録する"
