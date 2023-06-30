@@ -3,6 +3,8 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
+    message:
+    　　require_login: 'ログインしてください'
   users:
     new:
       title: 'ユーザー登録'
@@ -28,13 +30,14 @@ ja:
       title: '掲示板作成'
       bookmarks:
         title: 'ブックマーク一覧'
+      warnings:
+        not_authenticated: "ログインしていません。"
   profiles:
     show:
       title: 'プロフィール'
-  message:
-    require_login: 'ログインしてください'
     flash:
       notices:
         board_created: '掲示板を作成しました'
       alerts:
         board_creation_failed: '掲示板を作成できませんでした'
+      
