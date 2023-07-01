@@ -10,9 +10,9 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
-      redirect_to boards_path, notice: '掲示板を作成しました'
+      redirect_to boards_path, success: t('defaults.message.created', item: Board.model_name.human)
     else
-      flash.now[:alert] = '掲示板を作成できませんでした'
+      flash.now['danger'] = t('defaults.message.not_created', item: Board.model_name.human)
       render :new
     end
   end
