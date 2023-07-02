@@ -12,7 +12,7 @@ class BoardsController < ApplicationController
     if @board.save
       redirect_to boards_path, success: t('defaults.message.created', item: Board.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_created', item: Board.model_name.human)
+      flash['danger'] = t('defaults.message.not_created', item: Board.model_name.human)
       render :new
     end
   end
