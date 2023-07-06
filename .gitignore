@@ -33,3 +33,4 @@
 # Ignore sqlite3 files
 db/runteq_normal_development
 db/runteq_normal_test
+/public/uploads
