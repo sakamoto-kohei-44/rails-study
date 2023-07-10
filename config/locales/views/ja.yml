@@ -48,3 +48,7 @@ ja:
   helpers:
     submit:
       create: "登録する"
+  comments:
+    create:
+      created: "コメントを作成しました"
+      not_created: "コメントを作成できませんでした"
