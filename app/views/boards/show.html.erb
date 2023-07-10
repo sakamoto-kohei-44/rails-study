@@ -1,39 +1,32 @@
 <div class="container pt-5">
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
-      <h1>掲示板詳細</h1>
+      <h1><%= t('.title') %></h1>
       <!-- 掲示板内容 -->
-<article class="card">
-  <div class="card-body">
-    <div class='row'>
-      <div class='col-md-3'>
-        <% if @board.board_image.present? %>
-          <img class="card-img-top img-fluid" src="<%= @board.board_image.url %>" width="300" height="200" />
-        <% end %>
-      </div>
-      <div class='col-md-9'>
-        <h3 style='display: inline;'><%= @board.title %></h3>
-        <ul class="list-inline">
-          <li class="list-inline-item">by <%= @board.user.name %></li>
-          <li class="list-inline-item"><%= @board.created_at.strftime('%Y/%m/%d %H:%M') %></li>
-        </ul>
-      </div>
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <%= image_tag @board.board_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
+            </div>
+            <div class='col-md-9'>
+              <h3 class="d-inline"><%= @board.title %></h3>
+              <%= render 'crud_menus', board: @board %>
+              <ul class="list-inline">
+                <li class="list-inline-item">by <%= @board.user.decorate.full_name %></li>
+                <li class="list-inline-item"><%= l @board.created_at, format: :long  %></li>
+              </ul>
+            </div>
+          </div>
+          <%= simple_format(@board.body) %>
+        </div>
+      </article>
     </div>
-    <p><%= @board.body %></p>
   </div>
-</article>
-</div>
-</div>
 
-<%= render 'comments/form', board: @board %>
-
+  <!-- コメントフォーム -->
+  <%= render 'comments/form', { board: @board, comment: @comment } %>
 
   <!-- コメントエリア -->
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <table id="js-table-comment" class="table">
-        <%= render @comments %>
-      </table>
-    </div>
-  </div>
+  <%= render 'comments/comments', { comments: @comments } %>
 </div>
