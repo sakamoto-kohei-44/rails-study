@@ -43,7 +43,8 @@ class BoardsController < ApplicationController
   private
 
   def set_board
-    @board = current_user.boards.find(params[:id])
+    @board = Board.find_by(id: params[:id])
+    render file: Rails.root.join('public/404.html'), status: 404, layout: false, content_type: 'text/html' if @board.nil?
   end
 
   def board_params
