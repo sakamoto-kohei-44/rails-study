@@ -8,9 +8,10 @@ ja:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
-      updated: '掲示板を更新しました'
-      not_updated: '掲示板を更新できませんでした'
-      deleted: '掲示板を削除しました'
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
   users:
     new:
       title: 'ユーザー登録'
@@ -32,6 +33,8 @@ ja:
     index:
       title: '掲示板一覧'
       no_result: '掲示板がありません。'
+    edit:
+      title: '掲示板編集'
     new:
       title: '掲示板作成'
     show:
