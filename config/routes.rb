@@ -10,4 +10,12 @@ Rails.application.routes.draw do
    resources :boards do
     resources :comments, only: %i[create], shallow: true
   end
+
+  resources :users, only: %i[new create]
+resources :boards do 
+  resorces collection do
+   get :bookmarks
+end
+
+resources :bookmarks, only: %i [create destroy]
 end
