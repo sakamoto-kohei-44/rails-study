@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[new create]
-  resources :boards do 
+  resources :boards do
     resorces collection do
       get :bookmarks
   end
 
-  resources :bookmarks, only: %i [create destroy]
+  resources :bookmarks, only: %i[create destroy]
 end
