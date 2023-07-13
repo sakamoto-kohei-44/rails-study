@@ -10,7 +10,22 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }
 
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarks_boards, through: :bookmarks, source: :board
+
   def own?(object)
     id == object.user_id
+  end
+
+  def bookmark(board)
+    bookmarks_boards << board
+  end
+
+  def unbookmark(board)
+    bookmarks_boards.delete(board)
+  end
+
+  def bookmark?(board)
+    bookmarks_boards.include?(board)
   end
 end
