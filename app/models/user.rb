@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :boards, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_boards, through: :bookmarks, source: :board
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -10,23 +12,20 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }
 
-  has_many :bookmarks, dependent: :destroy
-  has_many :bookmark_boards, through: :bookmarks, source: :board
-
   def own?(object)
     id == object.user_id
   end
 
   def bookmark(board)
-    bookmarks_boards << board
+    bookmark_boards << board
   end
 
   def unbookmark(board)
-    bookmarks_boards.delete(board)
+    bookmark_boards.destroy(board)
   end
 
   def bookmark?(board)
-    bookmarks_boards.include?(board)
+    bookmark_boards.include?(board)
   end
 
   def full_name
