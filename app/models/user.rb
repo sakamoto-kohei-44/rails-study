@@ -28,4 +28,8 @@ class User < ApplicationRecord
   def bookmark?(board)
     bookmarks_boards.include?(board)
   end
+
+  def full_name
+    "#{last_name} #{first_name}"
+  end
 end

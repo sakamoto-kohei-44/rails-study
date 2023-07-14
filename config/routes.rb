@@ -6,16 +6,14 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: %i[new create]
-   # 掲示板関連のルーティング
-   resources :boards do
+
+  # 掲示板関連のルーティング
+  resources :boards, only: %i[index new create show edit destroy update] do
+    get 'bookmarks', on: :collection
+    resource :bookmarks, only: %i[create destroy]
+  end
+
+  resources :boards do
     resources :comments, only: %i[create], shallow: true
   end
-
-  resources :users, only: %i[new create]
-  resources :boards do
-    resorces collection do
-      get :bookmarks
-  end
-
-  resources :bookmarks, only: %i[create destroy]
 end
