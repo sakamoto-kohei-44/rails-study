@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
 
   # 掲示板関連のルーティング
-  resources :boards, only: %i[index new create show edit destroy update] do
-    get 'bookmarks', on: :collection
-    resource :bookmarks, only: %i[create destroy]
+  resources :boards do
+    resources :comments, only: %i[create]
+    collection do
+      get :bookmarks
+    end
   end
 
   resources :boards do
