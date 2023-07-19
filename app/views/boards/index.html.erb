@@ -3,16 +3,7 @@
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
       <!-- 検索フォーム -->
-      <form>
-        <%= search_form_for @q, url: boards_path do |f| %>
-          <div class="input-group mb-3">
-            <%= f.search_field :title_or_body_cont, class: 'form-control', placeholder: '検索ワード' %>
-            <div class="input-group-append">
-              <%= f.submit '検索', class: 'btn btn-primary' %>
-            </div>
-          </div>
-        <% end %>
-      </form>
+      <%= render 'search_form', url: bookmarks_boards_path %>
     </div>
   </div>
   <!-- 掲示板一覧 -->
