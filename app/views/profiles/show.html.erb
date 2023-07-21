@@ -1,26 +1,21 @@
+<% content_for(:title, t('.title')) %>
 <div class="container pt-3">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h1 class="float-left mb-5">プロフィール</h1>
-      <%= link_to '編集', edit_profile_path, class: 'btn btn-success float-right' %>
+      <h1 class="float-left mb-5"><%= t('.title') %></h1>
+      <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-success float-right' %>
       <table class="table">
         <tr>
-          <th scope="row">氏名</th>
-          <td><%= @user.last_name %> <%= @user.first_name %></td>
+          <th scope="row"><%= t(User.human_attribute_name(:email)) %></th>
+          <td><%= current_user.email %></td>
         </tr>
         <tr>
-          <th scope="row">メールアドレス</th>
-          <td><%= @user.email %></td>
+          <th scope="row"><%= t(User.human_attribute_name(:full_name)) %></th>
+          <td><%= current_user.decorate.full_name %></td>
         </tr>
         <tr>
-          <th scope="row">アバター</th>
-          <td>
-            <% if @user.avatar? %>
-              <%= image_tag @user.avatar.url, size: "150x150" %>
-            <% else %>
-              アバターなし
-            <% end %>
-          </td>
+          <th scope="row"><%= t(User.human_attribute_name(:avatar)) %></th>
+          <td><%= image_tag current_user.avatar.url, class: 'rounded-circle', size: '50x50' %></td>
         </tr>
       </table>
     </div>
