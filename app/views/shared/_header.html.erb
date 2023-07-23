@@ -36,7 +36,7 @@
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-item"><%= current_user.decorate.full_name %></div>
             <div class="dropdown-divider"></div>
-            <%= link_to 'プロフィール', profile_path, class: 'dropdown-item' %>
+            <%= link_to (t 'profiles.show.title'), profile_path, class: 'dropdown-item' %>
             <%= link_to (t 'defaults.logout'), logout_path, class: 'dropdown-item', method: :delete %>
           </div>
         </li>
