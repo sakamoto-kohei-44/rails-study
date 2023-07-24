@@ -71,3 +71,11 @@ ja:
     create:
       created: "コメントを作成しました"
       not_created: "コメントを作成できませんでした"
+  password_resets:
+    new:
+      title: "パスワードリセット"
+      submit: "送信"
+    create:
+      success: "パスワードリセット手順を送信しました。"
+    success: "パスワードが変更されました。"
+    fail: "パスワードの変更に失敗しました。"
