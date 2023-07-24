@@ -1,8 +1,8 @@
-<%= content_for(:title, t('.title')) %>
+<% content_for(:title, t('.title')) %>
 <div class="container">
   <div class="row">
-    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1><%= t '.title' %></h1>
+    <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
       <%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
@@ -20,7 +20,7 @@
         </div>
         <div class="actions">
           <p class="text-center">
-          <%= f.submit class: 'btn btn-primary' %>
+            <%= f.submit class: 'btn btn-primary' %>
           </p>
         </div>
       <% end %>

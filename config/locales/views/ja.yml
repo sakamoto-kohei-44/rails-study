@@ -75,7 +75,10 @@ ja:
     new:
       title: "パスワードリセット"
       submit: "送信"
+    edit:
+      title: 'パスワードリセット'
     create:
       success: "パスワードリセット手順を送信しました。"
-    success: "パスワードが変更されました。"
+    update:
+    success: "パスワードを変しました。"
     fail: "パスワードの変更に失敗しました。"
