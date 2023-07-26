@@ -85,11 +85,11 @@ ja:
   admin:
     user_sessions:
       new:
-        title: "タイトル"
+        title: "ログイン"
       create:
         success: "ログインしました"
-        fail: "ログインに失敗しまし"
+        fail: "ログインに失敗しました"
       destroy: "ログアウトしました"
     dashboards:
-    index:
-      title: "¥ダッシュボード"
+      index:
+        title: "ダッシュボードです"
