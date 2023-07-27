@@ -84,12 +84,15 @@ ja:
     fail: "パスワードの変更に失敗しました。"
   admin:
     user_sessions:
-      new:
-        title: "ログイン"
       create:
         success: "ログインしました"
         fail: "ログインに失敗しました"
-      destroy: "ログアウトしました"
-    dashboards:
+      destroy:
+        success: "ログアウトしました"
+      new:
+        title: "タイトル"
       index:
         title: "ダッシュボードです"
+    dashboards:
+      index:
+        title: 'ダッシュボード'

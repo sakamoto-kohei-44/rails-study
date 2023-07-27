@@ -1,6 +1,6 @@
 class Admin::UserSessionsController < Admin::BaseController     # #BaseControllerを継承する
   skip_before_action :require_login, only: %i[new create]
-  skip_before_action :check_admin, only: %i[new create]
+  skip_before_action :check_admin, only: %i[new create destroy]
   layout 'admin_login'        # ログインページ用のレイアウトを用意するので宣言
 
   def new; end
@@ -16,7 +16,7 @@ class Admin::UserSessionsController < Admin::BaseController     # #BaseControlle
   end
 
   def destroy
-    logout                                      # ログアウトするためのSorceryメソッド
+    logout# ログアウトするためのSorceryメソッド
     redirect_to admin_login_path, success: t('admin.user_sessions.destroy.success')
   end
 end
