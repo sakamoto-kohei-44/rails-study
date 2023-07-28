@@ -1,15 +1,9 @@
 module ApplicationHelper
-  def page_title(page_title = '')
-    base_title = 'RUNTEQ BOARD APP'
-
-    page_title.empty? ? base_title : page_title + '|' + base_title
-  end
-
   def page_title(page_title = '', admin = false)
     base_title = if admin
-                 'RUNTEQ BOARD APP(管理画面)'
+                   'RUNTEQ BOARD APP(管理画面)'
                  else
-                 'RUNTEQ BOARD APP'
+                   'RUNTEQ BOARD APP'
                  end
 
     page_title.empty? ? base_title : page_title + ' | ' + base_title
