@@ -6,6 +6,9 @@ ja:
     post: '投稿'
     search_word: '検索ワード'
     edit: '編集'
+    show: '詳細'
+    edit: '編集'
+    delete: '削除'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
@@ -97,3 +100,17 @@ ja:
     dashboards:
       index:
         title: 'ダッシュボード'
+    users:
+      index:
+        title: 'ユーザー一覧'
+      show:
+        title: 'ユーザー詳細'
+      edit:
+        title: 'ユーザー編集'
+    boards:
+      index:
+        title: '掲示板一覧'
+      show:
+        title: '掲示板詳細'
+      edit:
+        title: '掲示板編集'

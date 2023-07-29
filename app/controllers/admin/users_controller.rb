@@ -1,36 +1,37 @@
-class Admin::BoardsController < Admin::BaseController
-  before_action :set_board, only: %i[show edit update destroy]
+class Admin::UsersController < Admin::BaseController
+  before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @search = Board.ransack(params[:q])
-    @boards = @search.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+    @search = User.ransack(params[:q])
+    @users = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
   end
-
-  def show; end
   
+  def show; end
+
   def edit; end
 
   def update
-    if @board.update(board_params)
-      redirect_to admin_board_path(@board), success: t('defaults.message.updated', item: Board.model_name.human)
+    if @user.update(user_params)
+      redirect_to admin_user_path(@user), success: t('defaults.message.updated', item: User.model_name.human)
     else
-      flash.now[:danger] = t('defaults.message.not_updated', item: Board.model_name.human)
+      flash.now[:danger] = t('defaults.message.not_updated', item: User.model_name.human)
       render :edit
     end
   end
 
   def destroy
-    @board.destroy!
-    redirect_to admin_boards_path, success: t('defaults.message.deleted', item: Board.model_name.human)
+    @user.destroy!
+    redirect_to admin_users_path, success: t('defaults.message.deleted', item: User.model_name.human)
   end
+
 
   private
 
-  def set_board
-    @board = Board.find(params[:id])
+  def set_user
+    @user = User.find(params[:id])
   end
 
-  def board_params
-    params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :avatar, :avatar_cache, :role)
   end
 end
