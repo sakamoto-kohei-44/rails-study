@@ -58,6 +58,8 @@ end
 group :test do
   gem 'capybara'
   gem 'webdrivers'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -79,3 +81,4 @@ gem 'bootstrap4-kaminari-views'
 gem 'ransack'
 gem 'config'
 gem 'enum_help'
+gem 'activesupport', '5.2.8.1'
